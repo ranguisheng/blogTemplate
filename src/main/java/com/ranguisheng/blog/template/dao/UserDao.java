@@ -8,5 +8,5 @@ public interface UserDao {
      * @return
      */
     public User getUserById(long userId);
-    
+
 }
