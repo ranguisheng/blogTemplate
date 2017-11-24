@@ -23,7 +23,7 @@ import java.util.Properties;
  * Created by guishengran on 2017/11/23.
  */
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class,HibernateJpaAutoConfiguration.class})
-public class ApplicationBoot /*extends SpringBootServletInitializer*/ implements EmbeddedServletContainerCustomizer {
+public class ApplicationBoot extends SpringBootServletInitializer implements EmbeddedServletContainerCustomizer {
     private static final Logger logger = Logger.getLogger(ApplicationBoot.class);
     public static void main(String[] args) throws IOException {
         //程序启动入口
@@ -39,13 +39,13 @@ public class ApplicationBoot /*extends SpringBootServletInitializer*/ implements
 
     @Override
     public void customize(ConfigurableEmbeddedServletContainer configurableEmbeddedServletContainer) {
-        configurableEmbeddedServletContainer.setPort(8081);
+        configurableEmbeddedServletContainer.setPort(8084);
     }
 
-//    @Override
-//    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-//        return application.sources(ApplicationBoot.class);
-//    }
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(ApplicationBoot.class);
+    }
 
     @Bean
     public CommandLineRunner commandLineRunner(ApplicationContext ctx){
