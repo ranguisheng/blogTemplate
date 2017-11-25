@@ -1,12 +1,14 @@
 package com.ranguisheng.blog.template.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 /**
  * Created by guishengran on 2017/11/24.
  */
 @ConfigurationProperties(prefix = "web")
+@PropertySource("classpath:my-web.properties")
 @Component
 public class BlogTemplateConfig {
     private String name;
