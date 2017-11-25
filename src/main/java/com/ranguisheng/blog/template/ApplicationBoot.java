@@ -15,9 +15,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Arrays;
-import java.util.Properties;
 
 
 /**
@@ -34,7 +32,7 @@ public class ApplicationBoot extends SpringBootServletInitializer implements Emb
 
     @Override
     public void customize(ConfigurableEmbeddedServletContainer configurableEmbeddedServletContainer) {
-        configurableEmbeddedServletContainer.setPort(8081);
+        configurableEmbeddedServletContainer.setPort(8080);
     }
 
     @Override

@@ -1,17 +1,17 @@
 package com.ranguisheng.blog.template.controller;
 
-import com.ranguisheng.blog.template.config.BlogTemplateConfig;
+import com.ranguisheng.blog.template.config.WebConfig;
+import com.ranguisheng.blog.template.utils.DBHelpUtil;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 
 /**
@@ -21,28 +21,26 @@ import java.util.Set;
 public class IndexController {
     private static final Logger logger = Logger.getLogger(IndexController.class);
     @Autowired
-    BlogTemplateConfig blogTemplateConfig;
+    WebConfig webConfig;
 
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    @Qualifier("primaryJdbcTemplate")
+    private JdbcTemplate jdbcTemplate1;
+
+    @Autowired
+    @Qualifier("secondaryJdbcTemplate")
+    private JdbcTemplate jdbcTemplate2;
 
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public String index(){
-        //测试查询数据库
+        logger.info("print primarydatasource user table......");
         String sql = "select * from user";
-        List<Map<String,Object>> list = jdbcTemplate.queryForList(sql);
-        for(Map<String,Object> map:list){
-            Set<Map.Entry<String,Object>> entries = map.entrySet();
-            if(entries != null){
-                Iterator<Map.Entry<String,Object>> iterator = entries.iterator();
-                while (iterator.hasNext()){
-                    Map.Entry<String, Object> entry =(Map.Entry<String, Object>) iterator.next( );
-                    Object key = entry.getKey( );
-                    Object value = entry.getValue();
-                    System.out.println(key+":"+value);
-                }
-            }
-        }
+        List<Map<String,Object>> list = jdbcTemplate1.queryForList(sql);
+        DBHelpUtil.tableInfoPrinter(list);
+        logger.info("print secondarydatasource user table......");
+        String sql1 = "select * from user";
+        List<Map<String,Object>> list1 = jdbcTemplate2.queryForList(sql1);
+        DBHelpUtil.tableInfoPrinter(list1);
         return "Welcome to blog template:)";
     }
 }
