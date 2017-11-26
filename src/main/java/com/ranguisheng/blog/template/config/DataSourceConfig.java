@@ -15,16 +15,14 @@ import javax.sql.DataSource;
  */
 @Configuration
 @ComponentScan
-@PropertySource(value = {"classpath:*jdbc.properties"},ignoreResourceNotFound = true)
+@PropertySource(value = {"classpath:primaryjdbc.properties","classpath:secondaryjdbc.properties"},ignoreResourceNotFound = true)
 public class DataSourceConfig {
     @Bean(name="primaryDataSource")
-    @Qualifier("primaryDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.primary")
     public DataSource primaryDataSource(){
         return new DriverManagerDataSource();
     }
     @Bean(name="secondaryDataSource")
-    @Qualifier("secondaryDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.secondary")
     public DataSource secondaryDataSource(){
         return new DriverManagerDataSource();
