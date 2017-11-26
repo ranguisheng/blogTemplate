@@ -22,7 +22,7 @@ import java.util.Arrays;
  * Created by guishengran on 2017/11/23.
  */
 @EnableConfigurationProperties
-@SpringBootApplication (exclude = {DataSourceAutoConfiguration.class,HibernateJpaAutoConfiguration.class})
+@SpringBootApplication //(exclude = {DataSourceAutoConfiguration.class,HibernateJpaAutoConfiguration.class})
 public class ApplicationBoot extends SpringBootServletInitializer implements EmbeddedServletContainerCustomizer {
     private static final Logger logger = Logger.getLogger(ApplicationBoot.class);
     public static void main(String[] args) throws IOException {

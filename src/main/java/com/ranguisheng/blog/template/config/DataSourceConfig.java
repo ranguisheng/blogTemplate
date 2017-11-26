@@ -2,10 +2,7 @@ package com.ranguisheng.blog.template.config;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.sql.DataSource;
@@ -17,6 +14,8 @@ import javax.sql.DataSource;
 @ComponentScan
 @PropertySource(value = {"classpath:primaryjdbc.properties","classpath:secondaryjdbc.properties"},ignoreResourceNotFound = true)
 public class DataSourceConfig {
+
+    @Primary
     @Bean(name="primaryDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.primary")
     public DataSource primaryDataSource(){

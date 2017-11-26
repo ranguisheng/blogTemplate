@@ -1,6 +1,8 @@
 package com.ranguisheng.blog.template.controller;
 
 import com.ranguisheng.blog.template.config.WebConfig;
+import com.ranguisheng.blog.template.jpaconfig.p.UserRepository;
+import com.ranguisheng.blog.template.jpaconfig.s.User1Repository;
 import com.ranguisheng.blog.template.utils.DBHelpUtil;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,16 +33,24 @@ public class IndexController {
     @Qualifier("secondaryJdbcTemplate")
     private JdbcTemplate jdbcTemplate2;
 
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private User1Repository user1Repository;
+
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public String index(){
-        logger.info("print primarydatasource user table......");
-        String sql = "select * from user";
-        List<Map<String,Object>> list = jdbcTemplate1.queryForList(sql);
-        DBHelpUtil.tableInfoPrinter(list);
-        logger.info("print secondarydatasource user table......");
-        String sql1 = "select * from user";
-        List<Map<String,Object>> list1 = jdbcTemplate2.queryForList(sql1);
-        DBHelpUtil.tableInfoPrinter(list1);
+//        logger.info("print primarydatasource user table......");
+//        String sql = "select * from user";
+//        List<Map<String,Object>> list = jdbcTemplate1.queryForList(sql);
+//        DBHelpUtil.tableInfoPrinter(list);
+//        logger.info("print secondarydatasource user table......");
+//        String sql1 = "select * from user";
+//        List<Map<String,Object>> list1 = jdbcTemplate2.queryForList(sql1);
+//        DBHelpUtil.tableInfoPrinter(list1);
+        userRepository.delete(11L);
+//        user1Repository.deleteAll();
         return "Welcome to blog template:)";
     }
 }
