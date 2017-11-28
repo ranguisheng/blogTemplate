@@ -1,5 +1,6 @@
 package com.ranguisheng.blog.template.test;
 
+import com.alibaba.fastjson.JSON;
 import com.ranguisheng.blog.template.jpaconfig.p.User;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
@@ -36,6 +37,8 @@ public class TestRedis {
         ValueOperations<String,User> operations = redisTemplate.opsForValue();
         operations.set("com.neox",user);
         operations.set("com.neox.f",user,1, TimeUnit.SECONDS);
+        User user1 = operations.get("com.neox");
+        logger.info("user:"+ JSON.toJSONString(user1));
         Thread.sleep(1000);
         boolean exists = redisTemplate.hasKey("com.neox.f");
         if(exists){
