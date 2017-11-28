@@ -4,16 +4,21 @@ import com.ranguisheng.blog.template.jpaconfig.p.User;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.concurrent.TimeUnit;
 
 /**
  * Created by guishengran on 2017/11/28.
  */
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringBootTest
 public class TestRedis {
     private static final Logger logger = Logger.getLogger(TestRedis.class);
     @Autowired
