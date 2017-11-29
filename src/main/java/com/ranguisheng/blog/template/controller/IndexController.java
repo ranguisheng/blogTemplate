@@ -51,7 +51,7 @@ public class IndexController {
 //        String sql1 = "select * from user";
 //        List<Map<String,Object>> list1 = jdbcTemplate2.queryForList(sql1);
 //        DBHelpUtil.tableInfoPrinter(list1);
-        userRepository.delete(11L);
+//        userRepository.delete(11L);
 //        user1Repository.deleteAll();
         return "Welcome to blog template:)";
     }
