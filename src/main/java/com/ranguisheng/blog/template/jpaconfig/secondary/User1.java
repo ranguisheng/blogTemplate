@@ -1,4 +1,4 @@
-package com.ranguisheng.blog.template.jpaconfig.s;
+package com.ranguisheng.blog.template.jpaconfig.secondary;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

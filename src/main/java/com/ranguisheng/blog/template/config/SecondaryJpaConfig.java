@@ -19,7 +19,7 @@ import java.util.Map;
 @EnableTransactionManagement
 @EnableJpaRepositories(entityManagerFactoryRef="entityManagerFactorySecondary",
         transactionManagerRef="transactionManagerSecondary",
-        basePackages={"com.ranguisheng.blog.template.jpaconfig.s"})
+        basePackages={"com.ranguisheng.blog.template.jpaconfig.secondary"})
 public class SecondaryJpaConfig {
     @Autowired
     @Qualifier("secondaryDataSource")
@@ -35,7 +35,7 @@ public class SecondaryJpaConfig {
         return builder
                 .dataSource(secondaryDataSource)
                 .properties(getVendorProperties(secondaryDataSource))
-                .packages("com.ranguisheng.blog.template.jpaconfig.s") //设置实体类所在位置
+                .packages("com.ranguisheng.blog.template.jpaconfig.secondary") //设置实体类所在位置
                 .persistenceUnit("secondaryPersistenceUnit")
                 .build();
     }

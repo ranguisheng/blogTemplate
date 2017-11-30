@@ -1,7 +1,7 @@
 package com.ranguisheng.blog.template.test;
 
 import com.alibaba.fastjson.JSON;
-import com.ranguisheng.blog.template.jpaconfig.p.User;
+import com.ranguisheng.blog.template.jpaconfig.primary.User;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;

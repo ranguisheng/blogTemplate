@@ -1,9 +1,8 @@
 package com.ranguisheng.blog.template.controller;
 
 import com.ranguisheng.blog.template.config.WebConfig;
-import com.ranguisheng.blog.template.jpaconfig.p.UserRepository;
-import com.ranguisheng.blog.template.jpaconfig.s.User1Repository;
-import com.ranguisheng.blog.template.utils.DBHelpUtil;
+import com.ranguisheng.blog.template.jpaconfig.primary.UserRepository;
+import com.ranguisheng.blog.template.jpaconfig.secondary.User1Repository;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -13,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
-import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 

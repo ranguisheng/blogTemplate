@@ -21,7 +21,7 @@ import java.util.Map;
 @EnableTransactionManagement
 @EnableJpaRepositories(entityManagerFactoryRef="entityManagerFactoryPrimary",
 transactionManagerRef="transactionManagerPrimary",
-basePackages={"com.ranguisheng.blog.template.jpaconfig.p"})
+basePackages={"com.ranguisheng.blog.template.jpaconfig.primary"})
 public class PrimaryJpaConfig {
 
     @Autowired
@@ -40,7 +40,7 @@ public class PrimaryJpaConfig {
         return builder
                 .dataSource(primaryDataSource)
                 .properties(getVendorProperties(primaryDataSource))
-                .packages("com.ranguisheng.blog.template.jpaconfig.p") //设置实体类所在位置
+                .packages("com.ranguisheng.blog.template.jpaconfig.primary") //设置实体类所在位置
                 .persistenceUnit("primaryPersistenceUnit")
                 .build();
     }

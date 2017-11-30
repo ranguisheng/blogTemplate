@@ -1,7 +1,7 @@
 package com.ranguisheng.blog.template.service.impl;
 
-import com.ranguisheng.blog.template.jpaconfig.p.User;
-import com.ranguisheng.blog.template.jpaconfig.p.UserRepository;
+import com.ranguisheng.blog.template.jpaconfig.primary.User;
+import com.ranguisheng.blog.template.jpaconfig.primary.UserRepository;
 import com.ranguisheng.blog.template.service.IUserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,9 +1,9 @@
 package com.ranguisheng.blog.template.test;
 
-import com.ranguisheng.blog.template.jpaconfig.p.User;
-import com.ranguisheng.blog.template.jpaconfig.p.UserRepository;
-import com.ranguisheng.blog.template.jpaconfig.s.User1;
-import com.ranguisheng.blog.template.jpaconfig.s.User1Repository;
+import com.ranguisheng.blog.template.jpaconfig.primary.User;
+import com.ranguisheng.blog.template.jpaconfig.primary.UserRepository;
+import com.ranguisheng.blog.template.jpaconfig.secondary.User1;
+import com.ranguisheng.blog.template.jpaconfig.secondary.User1Repository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
