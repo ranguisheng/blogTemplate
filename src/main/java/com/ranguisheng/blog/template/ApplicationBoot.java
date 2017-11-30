@@ -1,6 +1,7 @@
 package com.ranguisheng.blog.template;
 
 import org.apache.log4j.Logger;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,6 +24,7 @@ import java.util.Arrays;
  */
 @EnableConfigurationProperties
 @SpringBootApplication //(exclude = {DataSourceAutoConfiguration.class,HibernateJpaAutoConfiguration.class})
+@MapperScan("com.ranguisheng.blog.template.mapper")
 public class ApplicationBoot extends SpringBootServletInitializer implements EmbeddedServletContainerCustomizer {
     private static final Logger logger = Logger.getLogger(ApplicationBoot.class);
     public static void main(String[] args) throws IOException {

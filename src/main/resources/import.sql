@@ -1,8 +1,20 @@
-drop table if exists city;
-drop table if exists hotel;
+DROP TABLE IF EXISTS `city`;
+CREATE TABLE `city` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(40) NOT NULL,
+  `state` varchar(40) NOT NULL,
+  `country` varchar(40) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `hotel`;
+CREATE TABLE `hotel` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `city` bigint(20) NOT NULL,
+  `name` varchar(40) NOT NULL,
+  `address` varchar(40) NOT NULL,
+  `zip` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-create table city (id intprimarykeyauto_increment, name varchar, state varchar, country varchar);
-create table hotel(city int, name varchar, address varchar, zip varchar);
-
-insert into city(name, state, country) values ('SanFrancisco', 'CA', 'US');
-insert intohotel(city, name, address, zip) values (1, 'ConradTreasury Place', 'William & George Streets', '4001')
+INSERT into city(name,state,country) VALUES('Beijing','Beijing','China');
+INSERT into hotel(city,name,address,zip) VALUES(1,'BeijingHotel','beijing','100026');

@@ -1,11 +1,12 @@
 package com.ranguisheng.blog.template.mapper;
 
-import com.ranguisheng.blog.template.model.Hotel;
-import org.apache.ibatis.annotations.Mapper;
+import com.ranguisheng.blog.template.model.City;
+import org.apache.ibatis.annotations.Select;
+
 /**
  * Created by guishengran on 2017/11/30.
  */
-@Mapper
 public interface CityMapper {
-    Hotel selectCityById(int city_id);
+    @Select("select * from city where id = #{id}")
+    City selectCityById(int id);
 }

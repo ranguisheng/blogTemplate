@@ -7,6 +7,12 @@
     <groupId>com.ranguisheng.blog</groupId>
     <artifactId>blogTemplate</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <mybatis.version>3.3.0</mybatis.version>
+        <mybatis-spring.version>1.2.3</mybatis-spring.version>
+    </properties>
     <!--secondaryit's necessary if need to be deployed by outer tomcat-->
     <packaging>war</packaging>
     <parent>
@@ -78,6 +84,12 @@
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
         </dependency>
         <!--embed db support-->
         <dependency>
@@ -98,9 +110,6 @@
             <version>1.2.41</version>
         </dependency>
     </dependencies>
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
     <build>
         <finalName>${project.artifactId}-${project.version}</finalName>
         <!-- load configure files-->

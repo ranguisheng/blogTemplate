@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 public class Hotel implements Serializable {
     private static final long serialVersionUID = 1L;
-
+    private long id;
     private Long city;
 
     private String name;
@@ -15,6 +15,14 @@ public class Hotel implements Serializable {
     private String address;
 
     private String zip;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public Long getCity() {
         return city;

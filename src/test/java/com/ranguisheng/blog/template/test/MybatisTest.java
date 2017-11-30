@@ -1,6 +1,6 @@
 package com.ranguisheng.blog.template.test;
 
-import com.ranguisheng.blog.template.dao.CityDao;
+import com.ranguisheng.blog.template.mapper.CityMapper;
 import com.ranguisheng.blog.template.mapper.HotelMapper;
 import org.apache.log4j.Logger;
 import org.junit.Test;
@@ -17,13 +17,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class MybatisTest {
     private static final Logger logger = Logger.getLogger(MybatisTest.class);
     @Autowired
-    private CityDao cityDao;
+    private CityMapper cityMapper;
 
     @Autowired
     private HotelMapper hotelMapper;
     @Test
     public void testMybatis(){
-        logger.info(this.cityDao.selectCityById(1)+ "");
-        logger.info(this.hotelMapper.selectByCityId(1)+ "");
+        logger.info(this.cityMapper.selectCityById(1)+ "");
+        logger.info(this.hotelMapper.selectHotelByCityId(1)+ "");
     }
 }
