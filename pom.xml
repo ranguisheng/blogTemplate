@@ -171,7 +171,7 @@
         <profile>
             <id>test</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <deploy.type>test</deploy.type>
@@ -206,5 +206,24 @@
                 </resources>
             </build>
         </profile>
-    </profiles>
+        <profile>
+            <id>comp</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <deploy.type>comp</deploy.type>
+            </properties>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources.${deploy.type}</directory>
+                    </resource>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+</profiles>
 </project>
